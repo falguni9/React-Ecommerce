@@ -1,5 +1,5 @@
 # React-Ecommerce
-This is React Ecommerce app project. It have both Backend code and frontend code.
+This is React Ecommerce app project. It has both Backend code and frontend code.
 To Run this code Install NodeJs modules and all packages  .
 To RUN Backend code
 Step 1: node init
