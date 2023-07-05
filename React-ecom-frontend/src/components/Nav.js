@@ -9,9 +9,10 @@ import { Button } from "../styles/Button";
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
+  const [seller, setseller] = useState(false);
   const { total_item } = useCartContext();
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-
+  isAuthenticated && localStorage.setItem("User-email", JSON.stringify(user.email));
   const Nav = styled.nav`
     .navbar-lists {
       display: flex;
@@ -26,7 +27,7 @@ const Nav = () => {
           font-size: 1.8rem;
           font-weight: 500;
           text-transform: uppercase;
-          color: ${({ theme }) => theme.colors.black};
+          color: ${({ theme }) => theme.colors.white};
           transition: color 0.3s linear;
         }
 
@@ -85,7 +86,7 @@ const Nav = () => {
       padding: 0.8rem 1.4rem;
     }
 
-    @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    @media (max-width:1221px) {
       .mobile-navbar-btn {
         display: inline-block;
         z-index: 9999;
@@ -93,7 +94,7 @@ const Nav = () => {
 
         .mobile-nav-icon {
           font-size: 4.2rem;
-          color: ${({ theme }) => theme.colors.black};
+          color: ${({ theme }) => theme.colors.white};
         }
       }
 
@@ -113,12 +114,13 @@ const Nav = () => {
 
       .navbar-lists {
         width: 100vw;
-        height: 100vh;
+        height:100vh;
+        gap: 2rem;
         position: absolute;
         top: 0;
-        left: 0;
+        right: 0;
         background-color: #fff;
-
+        
         display: flex;
         justify-content: center;
         align-items: center;
@@ -126,21 +128,32 @@ const Nav = () => {
 
         visibility: hidden;
         opacity: 0;
-        transform: translateX(100%);
-        /* transform-origin: top; */
-        transition: all 3s linear;
+        // // transform: translateX(100%);
+        // /* transform-origin: top; */
+        // // transition: all 1s linear;
+        // transform: translateX(0);
+        // transform-origin: left;
+        // transition: all 3s linear;
       }
 
       .active .navbar-lists {
         visibility: visible;
-        opacity: 1;
-        transform: translateX(0);
+        opacity: .9;
+        top: -2.5rem;
+        right: -4rem;
+        // transform: translateX(0);
         z-index: 999;
-        transform-origin: right;
-        transition: all 3s linear;
+        
+        // transform: translateX(0%);
+        // transform-origin: top; 
+        // transition: all 3s linear;
 
         .navbar-link {
           font-size: 4.2rem;
+          color: ${({ theme }) => theme.colors.black};
+        }
+        .navbar-link:hover{
+          color: ${({ theme }) => theme.colors.helper};
         }
       }
       .cart-trolley--link {
@@ -161,7 +174,7 @@ const Nav = () => {
       .user-logout,
       .user-login {
         font-size: 2.2rem;
-        padding: 0.8rem 1.4rem;
+        padding: 0.8rem 1rem;
       }
     }
   `;
@@ -188,7 +201,7 @@ const Nav = () => {
           </li>
           <li>
             <NavLink
-              to="/products"
+              to="/product"
               className="navbar-link "
               onClick={() => setMenuIcon(false)}>
               Products
@@ -202,19 +215,45 @@ const Nav = () => {
               Contact
             </NavLink>
           </li>
-
-          {isAuthenticated && <p>{user.name}</p>}
+          <li>
+            <NavLink
+              to="/allOrder"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}>
+              Order
+            </NavLink>
+          </li>
+          {seller && <li>
+            <NavLink
+              to="/seller"
+              className="navbar-link "
+              onClick={() => setseller(false)}>
+              Seller
+            </NavLink>
+          </li>}
+          {/* onClick={() => logout({ returnTo: window.location.origin })} */}
+          {isAuthenticated && <p  style={{color:'#fcba03'}}>Welcome <br/> {user.name}</p>}
 
           {isAuthenticated ? (
             <li>
+              
               <Button
-                onClick={() => logout({ returnTo: window.location.origin })}>
+              onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+                >
                 Log Out
               </Button>
             </li>
           ) : (
             <li>
               <Button onClick={() => loginWithRedirect()}>Log In</Button>
+              {/* new add  */}
+              {/* <NavLink
+              to="/login"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}>
+              Log IN
+            </NavLink> */}
+
             </li>
           )}
 

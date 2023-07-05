@@ -91,7 +91,7 @@ ${"" /* resuable code section  */}
 
 .grid {
   display: grid;
-  gap: 9rem;
+  gap: 2rem;
 }
 
 .grid-two-column {
@@ -157,6 +157,9 @@ input, textarea{
     }
 
 @media (max-width: ${({ theme }) => theme.media.tab}) {
+  html {
+    font-size: 70%;
+  }
     .container {
     max-width: 130rem;
     padding: 0 3.2rem;

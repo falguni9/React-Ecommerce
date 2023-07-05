@@ -6,7 +6,7 @@ const FeatureProduct = () => {
   const { isLoading, featureProducts } = useProductContext();
 
   if (isLoading) {
-    return <div> ......Loading </div>;
+    return <div className="container"> <p className="lodder" > .......LODDING </p> </div>;
   }
 
   return (
@@ -16,7 +16,8 @@ const FeatureProduct = () => {
         <div className="common-heading">Our Feature Services</div>
         <div className="grid grid-three-column">
           {featureProducts.map((curElem) => {
-            return <Product key={curElem.id} {...curElem} />;
+            // console.log(curElem)
+            return <Product key={curElem._id} {...curElem} />; //product page and {...curElem}props
           })}
         </div>
       </div>
@@ -25,11 +26,21 @@ const FeatureProduct = () => {
 };
 
 const Wrapper = styled.section`
-  padding: 9rem 0;
+  padding: 5rem 0;
+  gap: 2rem;
   background-color: ${({ theme }) => theme.colors.bg};
+.lodder{
+  width:100vw;
+  height:30vh;
+  text-align: center;
+  margin:20rem;
+  padding:2rem
 
+}
   .container {
     max-width: 120rem;
+ 
+    padding:1rem;
   }
 
   figure {
@@ -80,7 +91,8 @@ const Wrapper = styled.section`
   .card {
     background-color: #fff;
     border-radius: 1rem;
-
+  
+    
     .card-data {
       padding: 0 2rem;
     }
@@ -122,6 +134,25 @@ const Wrapper = styled.section`
       }
     }
   }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    .grid {
+      gap: 2rem;
+    }
+
+    .grid-three-column{
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (min-width: ${({ theme }) => theme.media.mobile}) and (max-width: ${({ theme }) => theme.media.tab}) {
+    .grid {
+      gap: 2rem;
+    }
+
+    .grid-three-column{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+ 
 `;
 
 export default FeatureProduct;

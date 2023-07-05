@@ -1,16 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from "./About";
-import Home from "./Home";
-import Products from "./Products";
-import Contact from "./Contact";
-import Cart from "./Cart";
-import SingleProduct from "./SingleProduct";
-import ErrorPage from "./ErrorPage";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Contact from "./pages/Contact";
+import Cart from "./pages/Cart";
+import SingleProduct from "./pages/SingleProduct";
+import ErrorPage from "./pages/ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import CancelPayment from "./pages/CancelPayment";
+import Seller from "./pages/Seller";
+import Order from "./pages/Order"
+import Address from "./components/Address";
+import OrderList from "./pages/OrderList";
+
+
 
 const App = () => {
   const theme = {
@@ -42,17 +48,24 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
-        <Header />
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/product" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/seller" element={<Seller />} />   
+          <Route path="/order" element={<Order />} />
+          <Route path="/setaddress" element={<Address />} />
+          <Route path="/paysuccess" element={<PaymentSuccess />} />
+          <Route path="/payfailed" element={<CancelPayment />} />
+          <Route path="/allOrder" element={<OrderList />} />
+
         </Routes>
-        <Footer />
+       
       </Router>
     </ThemeProvider>
   );

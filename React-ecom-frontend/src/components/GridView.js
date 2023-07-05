@@ -15,14 +15,14 @@ const GridView = ({ products }) => {
 };
 
 const Wrapper = styled.section`
-  padding: 9rem 0;
+  padding: 1rem 0;
 
   .container {
     max-width: 120rem;
   }
 
   .grid {
-    gap: 3.2rem;
+    gap: 2rem;
   }
 
   figure {
@@ -61,7 +61,7 @@ const Wrapper = styled.section`
   .card {
     background-color: ${({ theme }) => theme.colors.bg};
     border-radius: 1rem;
-
+    
     .card-data {
       padding: 0 1rem;
     }
@@ -103,6 +103,24 @@ const Wrapper = styled.section`
       }
     }
   }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    
+
+    .grid-three-column{
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (min-width: ${({ theme }) => theme.media.mobile}) and (max-width: 90rem) {
+    .grid {
+      gap: 1rem;
+    }
+  
+
+    .grid-three-column{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+ 
 `;
 
 export default GridView;

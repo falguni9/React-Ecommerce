@@ -9,31 +9,31 @@ const Trusted = () => {
           {/* my 1st img  */}
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image2.png"
+              src="https://res.cloudinary.com/dygfqcdgo/image/upload/v1687868596/react%20ecoom%20logo/2560px-LG_logo__2015_.svg_aii0a3.png"
               alt="trusted-brands"
             />
           </div>
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image3.png"
+              src="https://res.cloudinary.com/dygfqcdgo/image/upload/v1687868570/react%20ecoom%20logo/Nokia-Logo.wine_qpl77y.png"
               alt="trusted-brands"
             />
           </div>
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image4.png"
+              src="https://res.cloudinary.com/dygfqcdgo/image/upload/v1687868569/react%20ecoom%20logo/samsung-4-logo-png-transparent_iinvqt.png"
               alt="trusted-brands"
             />
           </div>
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image6.png"
+              src="https://res.cloudinary.com/dygfqcdgo/image/upload/v1687868547/react%20ecoom%20logo/Bosch-logo.svg_keqteo.png"
               alt="trusted-brands"
             />
           </div>
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image8.png"
+              src="https://res.cloudinary.com/dygfqcdgo/image/upload/v1687868485/react%20ecoom%20logo/Apple_logo_black.svg_yjg0tn.png"
               alt="trusted-brands"
             />
           </div>
@@ -60,7 +60,7 @@ const Wrapper = styled.section`
 
   img {
     min-width: 10rem;
-    height: 10rem;
+    height: 5rem;
   }
 
   .brand-section-slider {

@@ -1,7 +1,7 @@
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     let { id, color, amount, product } = action.payload;
-
+    
     // tackle the existing product
 
     let existingProduct = state.cart.find(
@@ -104,6 +104,21 @@ const cartReducer = (state, action) => {
       cart: [],
     };
   }
+
+  // to empty or to clear to cart
+  if (action.type === "CLEAR_ADDRESS") {
+    return {
+      ...state,
+      CartAddress: {},
+    };
+  }
+  if (action.type === "ADD_TO_CARTaddress") {
+    return {
+      ...state,
+      CartAddress: [action.payload],
+    };
+  }
+ 
 
   // if (action.type === "CART_TOTAL_ITEM") {
   //   let updatedItemVal = state.cart.reduce((initialVal, curElem) => {

@@ -4,7 +4,7 @@ import reducer from "../reducer/cartReducer";
 const CartContext = createContext();
 
 const getLocalCartData = () => {
-  let localCartData = localStorage.getItem("thapaCart");
+  let localCartData = localStorage.getItem("RayCart");
   // if (localCartData === []) {
   //   return [];
   // } else {
@@ -15,6 +15,8 @@ const getLocalCartData = () => {
 
   return parsedData;
 };
+
+
 
 const initialState = {
   // cart: [],
@@ -30,6 +32,9 @@ const CartProvider = ({ children }) => {
   const addToCart = (id, color, amount, product) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, color, amount, product } });
   };
+  // const addToCartAddress = (id, color, amount, product) => {
+  //   dispatch({ type: "ADD_TO_CARTaddress", payload: state.CartAddress });
+  // };
 
   // increment and decrement the product
 
@@ -51,6 +56,11 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "CLEAR_CART" });
   };
 
+  // to clear the cart
+  // const clearAddress = () => {
+  //   dispatch({ type: "CLEAR_ADDRESS" });
+  // };
+
   // to add the data in localStorage
   // get vs set
 
@@ -59,7 +69,8 @@ const CartProvider = ({ children }) => {
     // dispatch({ type: "CART_TOTAL_PRICE" });
     dispatch({ type: "CART_ITEM_PRICE_TOTAL" });
 
-    localStorage.setItem("thapaCart", JSON.stringify(state.cart));
+    localStorage.setItem("RayCart", JSON.stringify(state.cart));
+    // console.log(state.cart)
   }, [state.cart]);
 
   return (
@@ -71,6 +82,8 @@ const CartProvider = ({ children }) => {
         clearCart,
         setDecrease,
         setIncrement,
+        // addToCartAddress,
+        // clearAddress
       }}>
       {children}
     </CartContext.Provider>

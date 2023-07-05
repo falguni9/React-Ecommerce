@@ -4,7 +4,8 @@ import reducer from "../reducer/productReducer";
 
 const AppContext = createContext(); // creating a storage.
 
-const API = "https://api.pujakaitem.com/api/products";
+// const API = "https://api.pujakaitem.com/api/products";
+const API = "https://react-backend-ecommerce.onrender.com/reacteccomBack/api/v1/productlist/all";
 
 const initialState = {
   isLoading: false,
@@ -15,7 +16,7 @@ const initialState = {
   singleProduct: {},
 };
 // AppProvider = ({ children }) main funtion
-//children ====<app/> area of service. wrape in index.js for provider.
+//children === <app/> area of service. wrape in index.js for provider.
 const AppProvider = ({ children }) => { 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -23,7 +24,9 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING" });
     try {
       const res = await axios.get(url);
-      const products = await res.data;
+      // console.log(res)
+      const products = await res.data.result;//changes done
+      // console.log(products)
       // payload get all api data // dispatch works as a broker send type to action done.
       dispatch({ type: "SET_API_DATA", payload: products });
     } catch (error) {
@@ -37,7 +40,8 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_SINGLE_LOADING" });
     try {
       const res = await axios.get(url);
-      const singleProduct = await res.data;
+      const singleProduct = await res.data.result; //changes done
+      // console.log(singleProduct)
       dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
     } catch (error) {
       dispatch({ type: "SET_SINGLE_ERROR" });

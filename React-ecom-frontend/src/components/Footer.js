@@ -17,7 +17,7 @@ const Footer = () => {
 
             <div>
               <Button className="btn hireme-btn">
-                <NavLink to="/"> Get Started </NavLink>
+                <NavLink to="/product"> Get Started </NavLink>
               </Button>
             </div>
           </div>
@@ -27,7 +27,7 @@ const Footer = () => {
         <footer>
           <div className="container grid grid-four-column">
             <div className="footer-about">
-              <h3>Thapa Technical</h3>
+              <h3>Ray & Team</h3>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
             </div>
             <div className="footer-subscribe">
@@ -49,8 +49,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <a
-                    href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA"
-                    target="_blank">
+                    href="https://www.youtube.com"
+                    target="blank">
                     <FaYoutube className="icons" />
                   </a>
                 </div>
@@ -66,7 +66,7 @@ const Footer = () => {
             <hr />
             <div className="container grid grid-two-column ">
               <p>
-                @{new Date().getFullYear()} ThapaTechnical. All Rights Reserved
+                @{new Date().getFullYear()} Falguni Ray. All Rights Reserved
               </p>
               <div>
                 <p>PRIVACY POLICY</p>
